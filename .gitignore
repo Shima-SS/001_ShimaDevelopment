@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+*~
+
+# ログ・一時ファイル
+*.log
+debug.log
+.cache/
+
+# 依存パッケージ（将来ビルドを入れる場合に備えて）
+node_modules/
+vendor/
+
+# 環境ごとの設定
+.env
+.env.local

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html><head><style>x-dc,helmet,sc-if,sc-for,sc-slot{display:contents}script[type='text/x-dc']{display:none}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<style>
+  body { margin: 0; background: #e7ebed; }
+  a { color: #15191c; text-decoration: none; }
+  a:hover { color: #9a7510; }
+</style>
+</helmet>
+
+<section style="padding: 48px 40px 80px; font-family: 'IBM Plex Sans JP', sans-serif; color: #15191c; display: flex; flex-direction: column; gap: 56px;">
+
+  <div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; color: #5b6167;">FRAMES 02 / TOP &amp; STORE — 1280 &amp; 375</div>
+    <h1 style="margin: 0; font-size: 30px; font-weight: 600;">トップ・商品一覧・各詳細</h1>
+    <p style="margin: 0; font-size: 13.5px; line-height: 1.95; color: #4a5054;">トップ（2a確定案のフレーム化）、商品一覧（検索・絞り込み／全種別共通）、商品詳細、Webアプリ詳細、モバイルアプリ詳細。</p>
+  </div>
+
+  <!-- TOP -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">01 TOP — /</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;">
+          <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 20px; height: 20px; background: #e0b021; border-radius: 2px;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #5b6167;">SHIMA</span></div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.1em; color: #5b6167;">TOKYO, JP</div>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);">
+          <div style="padding: 72px 48px 56px; display: flex; flex-direction: column; gap: 44px;">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="font-size: 62px; font-weight: 600; line-height: 1.06; letter-spacing: -0.025em;">Shima<br>Development</div>
+              <div style="height: 8px; width: 132px; background: #e0b021;"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #dfe5e8;">
+              <sc-for list="{{ topNav }}" as="n" hint-placeholder-count="4">
+                <div style="display: flex; align-items: center; gap: 16px; padding: 20px 4px; border-bottom: 1px solid #dfe5e8;">
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9a7510; width: 24px;">{{ n.no }}</span>
+                  <span style="font-size: 21px; font-weight: 500;">{{ n.en }}</span>
+                  <span style="margin-left: auto; font-size: 12px; color: #5b6167;">{{ n.ja }}</span>
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #5b6167;">→</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="position: relative; border-left: 1px solid #dfe5e8; background: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e2e9ec 12px 24px); min-height: 560px; display: flex; align-items: flex-end; padding: 24px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167; background: #fff; border: 1px solid #d8dee1; padding: 6px 9px;">キービジュアル（縦長）</span>
+            <div style="position: absolute; top: 0; right: 0; width: 10px; height: 180px; background: #e0b021;"></div>
+          </div>
+        </div>
+        <div style="padding: 18px 48px; border-top: 1px solid #dfe5e8; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;">
+          <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #5b6167;">SHIMA</span></div>
+          <div style="display: flex; flex-direction: column; gap: 4px; padding: 6px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div>
+        </div>
+        <div style="padding: 44px 20px 28px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 38px; font-weight: 600; line-height: 1.1; letter-spacing: -0.025em;">Shima<br>Development</div>
+          <div style="height: 6px; width: 96px; background: #e0b021;"></div>
+        </div>
+        <div style="height: 240px; margin: 0 20px; background: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e2e9ec 12px 24px); border: 1px solid #dfe5e8; display: flex; align-items: flex-end; padding: 14px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167; background: #fff; padding: 4px 6px;">キービジュアル</span></div>
+        <div style="margin-top: 28px; border-top: 1px solid #dfe5e8;">
+          <sc-for list="{{ topNav }}" as="n" hint-placeholder-count="4">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-bottom: 1px solid #dfe5e8;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #9a7510; width: 20px;">{{ n.no }}</span>
+              <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 18px; font-weight: 500;">{{ n.en }}</span><span style="font-size: 11px; color: #5b6167;">{{ n.ja }}</span></div>
+              <span style="margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #5b6167;">→</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="padding: 16px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167;">© 2026 SHIMA DEVELOPMENT</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRODUCT LIST -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">02 PRODUCT LIST — /products/（検索・絞り込み／全種別共通）</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; gap: 28px; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-right: auto;"><div style="width: 20px; height: 20px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 16px; font-weight: 600;">Shima Development</span></div>
+          <div style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span>Apps</span><span style="border-bottom: 2px solid #e0b021; padding-bottom: 2px;">Web Design</span><span>Writing</span><span>About</span></div>
+          <div style="background: #15191c; color: #fff; font-size: 12.5px; padding: 10px 16px;">Contact</div>
+        </div>
+        <div style="padding: 10px 48px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">HOME / PRODUCTS</div>
+
+        <div style="padding: 44px 48px 56px; display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; align-items: flex-end; gap: 16px;">
+            <h2 style="margin: 0; font-size: 30px; font-weight: 600;">商品一覧</h2>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167;">24 ITEMS</span>
+          </div>
+
+          <div style="background: #fff; border: 1px solid #dfe5e8; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; gap: 12px;">
+              <div style="flex: 1; border: 1px solid #c9d2d6; padding: 13px; font-size: 13px; color: #8b9196;">キーワードで探す（商品名・タグ）</div>
+              <div style="background: #15191c; color: #fff; font-size: 13px; padding: 13px 24px;">検索</div>
+            </div>
+            <div style="display: flex; gap: 24px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid #eef2f4;">
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">TYPE</span>
+                <div style="display: flex; gap: 6px;"><span style="font-size: 12px; background: #15191c; color: #fff; padding: 8px 12px;">すべて</span><span style="font-size: 12px; border: 1px solid #c9d2d6; padding: 7px 12px;">WPテーマ</span><span style="font-size: 12px; border: 1px solid #c9d2d6; padding: 7px 12px;">HTMLテンプレ</span></div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">PRICE</span><div style="border: 1px solid #c9d2d6; font-size: 12px; padding: 8px 12px; color: #434a4f;">指定なし ▾</div></div>
+              <div style="display: flex; align-items: center; gap: 10px; margin-left: auto;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">SORT</span><div style="border: 1px solid #c9d2d6; font-size: 12px; padding: 8px 12px; color: #434a4f;">新着順 ▾</div></div>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">選択中</span><span style="font-size: 11.5px; background: #fdf3da; color: #7d5f0d; padding: 5px 9px;">WPテーマ ×</span><span style="font-size: 11.5px; background: #fdf3da; color: #7d5f0d; padding: 5px 9px;">#コーポレート ×</span><span style="font-size: 11.5px; color: #5b6167; border-bottom: 1px solid #c9d2d6;">条件をクリア</span></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+            <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
+              <div style="background: #fff; border: 1px solid #dfe5e8;">
+                <div style="aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e3e9ec 10px 20px);"></div>
+                <div style="padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; background: #eef2f4; padding: 3px 6px; color: #434a4f; align-self: flex-start;">{{ p.type }}</div>
+                  <div style="font-size: 16px; font-weight: 600; line-height: 1.5;">{{ p.name }}</div>
+                  <div style="font-size: 12px; line-height: 1.8; color: #5b6167;">{{ p.desc }}</div>
+                  <div style="display: flex; align-items: baseline; gap: 8px; padding-top: 8px; border-top: 1px solid #eef2f4;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 17px; font-weight: 500;">{{ p.price }}</span><span style="margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167;">→</span></div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 8px; padding-top: 12px;">
+            <span style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: #15191c; color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">1</span>
+            <span style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #c9d2d6; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #434a4f;">2</span>
+            <span style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #c9d2d6; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #434a4f;">3</span>
+            <span style="height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #c9d2d6; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #434a4f; padding: 0 14px;">NEXT →</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 14px; font-weight: 600;">Shima Development</span><div style="display: flex; flex-direction: column; gap: 4px; padding: 6px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+        <div style="padding: 8px 20px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167;">HOME / PRODUCTS</div>
+        <div style="padding: 24px 20px 32px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: flex-end; gap: 10px;"><h2 style="margin: 0; font-size: 24px; font-weight: 600;">商品一覧</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;">24 ITEMS</span></div>
+          <div style="display: flex; gap: 8px;">
+            <div style="flex: 1; border: 1px solid #c9d2d6; background: #fff; padding: 13px; font-size: 13px; color: #8b9196;">キーワードで探す</div>
+            <div style="width: 46px; border: 1px solid #c9d2d6; background: #fff; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #5b6167;">Q</div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <div style="flex: 1; background: #15191c; color: #fff; font-size: 13px; padding: 13px; text-align: center;">絞り込み（2）</div>
+            <div style="flex: 1; border: 1px solid #c9d2d6; background: #fff; font-size: 13px; padding: 13px; text-align: center; color: #434a4f;">新着順 ▾</div>
+          </div>
+          <div style="display: flex; gap: 6px; overflow: hidden;"><span style="font-size: 11.5px; background: #fdf3da; color: #7d5f0d; padding: 6px 9px; white-space: nowrap;">WPテーマ ×</span><span style="font-size: 11.5px; background: #fdf3da; color: #7d5f0d; padding: 6px 9px; white-space: nowrap;">#コーポレート ×</span></div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <sc-for list="{{ productsMobile }}" as="p" hint-placeholder-count="3">
+              <div style="background: #fff; border: 1px solid #dfe5e8; display: flex; gap: 14px; padding: 14px;">
+                <div style="width: 104px; aspect-ratio: 4 / 3; flex: none; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e3e9ec 10px 20px);"></div>
+                <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; background: #eef2f4; padding: 3px 5px; color: #434a4f; align-self: flex-start;">{{ p.type }}</div>
+                  <div style="font-size: 14px; font-weight: 600; line-height: 1.5;">{{ p.name }}</div>
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500;">{{ p.price }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="border: 1px solid #c9d2d6; background: #fff; padding: 14px; text-align: center; font-size: 13px; color: #434a4f;">さらに読み込む</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">03 PRODUCT DETAIL — /products/{slug}/（WPテーマ・HTMLテンプレ）</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 16px; font-weight: 600;">Shima Development</span><div style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span>Apps</span><span>Web Design</span><span>Writing</span><span>About</span></div></div>
+        <div style="padding: 10px 48px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">HOME / PRODUCTS / WP THEME NAME</div>
+        <div style="padding: 44px 48px 56px; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 40px; align-items: start;">
+          <div style="display: flex; flex-direction: column; gap: 28px;">
+            <div style="aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e2e9ec 12px 24px); border: 1px solid #dfe5e8; display: flex; align-items: flex-end; padding: 16px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; background: #fff; border: 1px solid #d8dee1; padding: 5px 7px; color: #5b6167;">メインキャプチャ</span></div>
+            <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;">
+              <div style="aspect-ratio: 4 / 3; background: repeating-linear-gradient(135deg, #eef2f4 0 8px, #e2e9ec 8px 16px); border: 1px solid #e0b021;"></div>
+              <div style="aspect-ratio: 4 / 3; background: repeating-linear-gradient(135deg, #eef2f4 0 8px, #e2e9ec 8px 16px); border: 1px solid #dfe5e8;"></div>
+              <div style="aspect-ratio: 4 / 3; background: repeating-linear-gradient(135deg, #eef2f4 0 8px, #e2e9ec 8px 16px); border: 1px solid #dfe5e8;"></div>
+              <div style="aspect-ratio: 4 / 3; background: repeating-linear-gradient(135deg, #eef2f4 0 8px, #e2e9ec 8px 16px); border: 1px solid #dfe5e8;"></div>
+            </div>
+            <div style="background: #fff; border: 1px solid #dfe5e8; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+              <h3 style="margin: 0; font-size: 18px; font-weight: 600;">このテーマについて</h3>
+              <div style="display: flex; flex-direction: column; gap: 9px;">
+                <div style="height: 11px; background: #eef2f4;"></div><div style="height: 11px; background: #eef2f4;"></div><div style="height: 11px; background: #eef2f4; width: 82%;"></div>
+              </div>
+              <h3 style="margin: 12px 0 0; font-size: 18px; font-weight: 600;">主な機能</h3>
+              <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+                <div style="display: flex; gap: 8px; align-items: center;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none;"></span><span style="font-size: 13px; color: #434a4f;">機能項目テキスト</span></div>
+                <div style="display: flex; gap: 8px; align-items: center;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none;"></span><span style="font-size: 13px; color: #434a4f;">機能項目テキスト</span></div>
+                <div style="display: flex; gap: 8px; align-items: center;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none;"></span><span style="font-size: 13px; color: #434a4f;">機能項目テキスト</span></div>
+                <div style="display: flex; gap: 8px; align-items: center;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none;"></span><span style="font-size: 13px; color: #434a4f;">機能項目テキスト</span></div>
+              </div>
+              <h3 style="margin: 12px 0 0; font-size: 18px; font-weight: 600;">よくある質問</h3>
+              <div style="display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid #eef2f4; font-size: 13.5px;">商用利用はできますか？<span style="color: #5b6167;">＋</span></div>
+                <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid #eef2f4; font-size: 13.5px;">サポート期間はどのくらいですか？<span style="color: #5b6167;">＋</span></div>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 12px;"><h3 style="margin: 0; font-size: 18px; font-weight: 600;">更新履歴</h3><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #5b6167;">CHANGELOG</span></div>
+              <div style="display: flex; flex-direction: column;">
+                <sc-for list="{{ changelogShown }}" as="c" hint-placeholder-count="1">
+                  <div style="padding: 14px 0; border-top: 1px solid #eef2f4; display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500;">{{ c.ver }}</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">{{ c.date }}</span></div>
+                    <div style="font-size: 13px; line-height: 1.85; color: #434a4f;">{{ c.note }}</div>
+                  </div>
+                </sc-for>
+                <div sc-camel-on-click="{{ toggleLog }}" style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid #eef2f4; font-size: 13px; color: #434a4f; cursor: pointer;">{{ logLabel }}<span style="font-family: 'IBM Plex Mono', monospace; color: #5b6167;">{{ logIcon }}</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px; position: sticky; top: 20px;">
+            <div style="background: #fff; border: 1px solid #dfe5e8; padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; background: #eef2f4; padding: 4px 7px; color: #434a4f; align-self: flex-start;">WP THEME</div>
+              <h2 style="margin: 0; font-size: 24px; font-weight: 600; line-height: 1.5;">WPテーマ名が入ります</h2>
+              <div style="font-size: 12.5px; line-height: 1.85; color: #5b6167;">対象業種・想定用途を1〜2行。</div>
+              <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 1px solid #eef2f4;">
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #5b6167;">PLAN — 2種から選択</div>
+                <div style="border: 1.5px solid #15191c; background: #fff; padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 16px; height: 16px; border-radius: 50%; border: 4px solid #15191c; flex: none;"></div>
+                    <span style="font-size: 13.5px; font-weight: 600;">テーマのみ</span>
+                    <span style="margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 500;">¥14,800</span>
+                  </div>
+                  <div style="font-size: 11.5px; line-height: 1.8; color: #5b6167; padding-left: 26px;">テーマファイル一式＋設置マニュアル。ご自身で設置される方向け。</div>
+                </div>
+                <div style="border: 1px solid #c9d2d6; background: #fff; padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 16px; height: 16px; border-radius: 50%; border: 1px solid #c9d2d6; flex: none;"></div>
+                    <span style="font-size: 13.5px; font-weight: 600;">テーマ ＋ 作業代行</span>
+                    <span style="margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 500;">¥39,800</span>
+                  </div>
+                  <div style="font-size: 11.5px; line-height: 1.8; color: #5b6167; padding-left: 26px;">設置・初期設定・原稿反映まで代行。公開できる状態でお渡し。</div>
+                </div>
+                <div style="font-size: 11px; color: #5b6167;">価格はすべて税込。追加カスタマイズは別途お見積り。</div>
+              </div>
+              <div style="background: #15191c; color: #fff; font-size: 14px; font-weight: 500; padding: 16px; text-align: center;">このプランで購入する</div>
+              <div style="display: flex; flex-direction: column; gap: 9px; padding-top: 14px; border-top: 1px solid #eef2f4; font-size: 12px; color: #5b6167;">
+                <div style="display: flex; justify-content: space-between;"><span>対応バージョン</span><span style="color: #15191c;">WP 6.x</span></div>
+                <div style="display: flex; justify-content: space-between;"><span>ライセンス</span><span style="color: #15191c;">1サイト / 商用可</span></div>
+                <div style="display: flex; justify-content: space-between;"><span>サポート</span><span style="color: #15191c;">購入後6ヶ月</span></div>
+                <div style="display: flex; justify-content: space-between;"><span>更新日</span><span style="color: #15191c;">2026.09.01</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 40px 48px 56px; background: #fff; border-top: 1px solid #dfe5e8; display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; align-items: baseline; gap: 14px;"><h3 style="margin: 0; font-size: 20px; font-weight: 600;">関連する商品</h3><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;">RELATED</span></div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+            <sc-for list="{{ productsMobile }}" as="p" hint-placeholder-count="3">
+              <div style="border: 1px solid #dfe5e8;">
+                <div style="aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e3e9ec 10px 20px);"></div>
+                <div style="padding: 14px; display: flex; flex-direction: column; gap: 6px;"><div style="font-size: 14px; font-weight: 600;">{{ p.name }}</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px;">{{ p.price }}</div></div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade; position: relative;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 14px; font-weight: 600;">Shima Development</span><div style="display: flex; flex-direction: column; gap: 4px; padding: 6px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+        <div style="aspect-ratio: 4 / 3; background: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e2e9ec 12px 24px); border-bottom: 1px solid #dfe5e8; display: flex; align-items: flex-end; padding: 12px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; background: #fff; padding: 4px 6px; color: #5b6167;">メイン / スワイプ</span></div>
+        <div style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 6px;"><div style="width: 20px; height: 3px; background: #e0b021;"></div><div style="width: 20px; height: 3px; background: #dfe5e8;"></div><div style="width: 20px; height: 3px; background: #dfe5e8;"></div></div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; background: #eef2f4; padding: 4px 7px; color: #434a4f; align-self: flex-start;">WP THEME</div>
+          <h2 style="margin: 0; font-size: 21px; font-weight: 600; line-height: 1.5;">WPテーマ名が入ります</h2>
+          <div style="font-size: 12.5px; line-height: 1.9; color: #5b6167;">対象業種・想定用途を1〜2行で。</div>
+          <div style="background: #fff; border: 1px solid #dfe5e8; padding: 16px; display: flex; flex-direction: column; gap: 9px; font-size: 12px; color: #5b6167;">
+            <div style="display: flex; justify-content: space-between;"><span>対応バージョン</span><span style="color: #15191c;">WP 6.x</span></div>
+            <div style="display: flex; justify-content: space-between;"><span>ライセンス</span><span style="color: #15191c;">1サイト / 商用可</span></div>
+            <div style="display: flex; justify-content: space-between;"><span>サポート</span><span style="color: #15191c;">6ヶ月</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 9px;"><div style="height: 11px; background: #eef2f4;"></div><div style="height: 11px; background: #eef2f4;"></div><div style="height: 11px; background: #eef2f4; width: 76%;"></div></div>
+          <div style="display: flex; align-items: baseline; gap: 10px; margin-top: 12px;"><h3 style="margin: 0; font-size: 17px; font-weight: 600;">更新履歴</h3><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #5b6167;">CHANGELOG</span></div>
+          <div style="display: flex; flex-direction: column; background: #fff; border: 1px solid #dfe5e8; padding: 0 16px;">
+            <sc-for list="{{ changelogShown }}" as="c" hint-placeholder-count="1">
+              <div style="padding: 14px 0; border-bottom: 1px solid #eef2f4; display: flex; flex-direction: column; gap: 6px;">
+                <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; font-weight: 500;">{{ c.ver }}</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167;">{{ c.date }}</span></div>
+                <div style="font-size: 12.5px; line-height: 1.85; color: #434a4f;">{{ c.note }}</div>
+              </div>
+            </sc-for>
+            <div sc-camel-on-click="{{ toggleLog }}" style="display: flex; justify-content: space-between; align-items: center; min-height: 44px; font-size: 12.5px; color: #434a4f; cursor: pointer;">{{ logLabel }}<span style="font-family: 'IBM Plex Mono', monospace; color: #5b6167;">{{ logIcon }}</span></div>
+          </div>
+          <div style="height: 88px;"></div>
+        </div>
+        <div style="position: sticky; bottom: 0; background: #fff; border-top: 1px solid #dfe5e8; padding: 12px 20px; display: flex; align-items: center; gap: 12px;">
+          <div style="display: flex; flex-direction: column;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 17px; font-weight: 500;">¥14,800〜</span><span style="font-size: 10px; color: #5b6167;">2プラン / 税込</span></div>
+          <div style="flex: 1; background: #15191c; color: #fff; font-size: 14px; font-weight: 500; padding: 15px; text-align: center;">プランを選ぶ</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WEB APP DETAIL -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">04 WEB APP — /apps/web/{slug}/（アプリ本体を置くだけの器）</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 16px; font-weight: 600;">Shima Development</span><div style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span style="border-bottom: 2px solid #e0b021; padding-bottom: 2px;">Apps</span><span>Web Design</span><span>Writing</span><span>About</span></div></div>
+        <div style="padding: 32px 48px 48px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; align-items: baseline; gap: 14px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;">APP AREA — 幅100% / 高さ可変</span></div>
+          <div style="min-height: 620px; background: #fff; border: 1px solid #dfe5e8; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167; border: 1px dashed #c9d2d6; padding: 14px 18px;">アプリケーション本体をここに設置</span></div>
+        </div>
+        <div style="padding: 18px 48px; border-top: 1px solid #dfe5e8; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 14px; font-weight: 600;">Shima Development</span><div style="display: flex; flex-direction: column; gap: 4px; padding: 6px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+        <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="min-height: 520px; background: #fff; border: 1px solid #dfe5e8; display: flex; align-items: center; justify-content: center; text-align: center;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167; border: 1px dashed #c9d2d6; padding: 12px;">アプリケーション本体</span></div>
+        </div>
+        <div style="padding: 16px 20px; border-top: 1px solid #dfe5e8; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167;">© 2026 SHIMA DEVELOPMENT</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APP DETAIL (Web / Mobile 共通) -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">05 APP DETAIL — /apps/{slug}/（Web・モバイル共通 / Webは /play/xxx/ へ外部リンク）</div>
+    <div style="display: flex; flex-direction: column; gap: 56px;">
+      <sc-for list="{{ appStates }}" as="st" hint-placeholder-count="4">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; background: #15191c; color: #e0b021; padding: 4px 8px;">{{ st.id }}</span><span style="font-size: 13px; font-weight: 600;">{{ st.title }}</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">{{ st.note }}</span></div>
+          <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+            <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+              <div style="display: flex; align-items: center; gap: 28px; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-right: auto;"><div style="width: 20px; height: 20px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Shima Development</span></div>
+                <nav style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span style="border-bottom: 2px solid #e0b021; padding-bottom: 2px;">Apps</span><span>Web Design</span><span>Writing</span><span>About</span></nav>
+                <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 30px; height: 30px; border: 1px solid #c9d2d6; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167;">Q</div><div style="background: #15191c; color: #fff; font-size: 12.5px; font-weight: 500; padding: 10px 16px; border-radius: 2px;">Contact</div></div>
+              </div>
+              <div style="padding: 10px 48px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">HOME / APPS / APP NAME</div>
+              <div style="padding: 56px 48px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center;">
+                <div style="display: flex; flex-direction: column; gap: 22px;">
+                  <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 72px; height: 72px; border-radius: 16px; background: repeating-linear-gradient(135deg, #eef2f4 0 8px, #e2e9ec 8px 16px); border: 1px solid #dfe5e8; flex: none;"></div>
+                    <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; background: #eef2f4; padding: 4px 7px; color: #434a4f; align-self: flex-start;">{{ st.label }}</span><span style="font-size: 12px; color: #5b6167;">{{ st.platform }}</span></div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                    <h2 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.32; letter-spacing: -0.015em;">育児アプリ名が<br>ここに入ります</h2>
+                    <sc-if value="{{ st.soon }}" hint-placeholder-val="{{ false }}"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; background: #fdf3da; color: #7d5f0d; padding: 4px 8px; align-self: flex-end; margin-bottom: 10px;">COMING SOON</span></sc-if>
+                  </div>
+                  <div style="font-size: 14px; line-height: 2; color: #434a4f;">誰のどんな場面を助けるアプリなのかを2行程度で。信頼性に関わる情報（データの扱い）も近くに置きます。</div>
+                  <div style="display: flex; gap: 10px; height: 50px;">
+                    <sc-if value="{{ st.web }}" hint-placeholder-val="{{ false }}"><div style="background: #e0b021; color: #15191c; font-size: 13.5px; font-weight: 600; padding: 0 24px; display: flex; gap: 10px; align-items: center;">ブラウザで使う<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px;">↗</span></div></sc-if>
+                    <sc-if value="{{ st.store }}" hint-placeholder-val="{{ true }}">
+                      <div style="background: #15191c; color: #fff; font-size: 13.5px; font-weight: 500; padding: 0 22px; display: flex; gap: 10px; align-items: center;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #e0b021;">iOS</span>App Store</div>
+                      <div style="background: #15191c; color: #fff; font-size: 13.5px; font-weight: 500; padding: 0 22px; display: flex; gap: 10px; align-items: center;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #e0b021;">AND</span>Google Play</div>
+                    </sc-if>
+                    <sc-if value="{{ st.soon }}" hint-placeholder-val="{{ false }}"><div aria-disabled="true" style="background: #dfe5e8; color: #5b6167; font-size: 13.5px; font-weight: 500; padding: 0 40px; display: flex; align-items: center; cursor: not-allowed;">準備中</div></sc-if>
+                  </div>
+                  <div style="display: flex; gap: 28px; padding-top: 16px; border-top: 1px solid #dfe5e8;">
+                    <sc-if value="{{ st.stats }}" hint-placeholder-val="{{ true }}">
+                      <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 500;">4.7</span><span style="font-size: 11px; color: #5b6167;">平均評価</span></div>
+                      <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 500;">12,000+</span><span style="font-size: 11px; color: #5b6167;">ダウンロード</span></div>
+                    </sc-if>
+                    <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 500;">無料</span><span style="font-size: 11px; color: #5b6167;">アプリ内課金あり</span></div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 16px; justify-content: center;">
+                  <div style="width: 200px; aspect-ratio: 9 / 19.5; border-radius: 26px; border: 1px solid #dfe5e8; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e2e9ec 10px 20px); display: flex; align-items: flex-end; justify-content: center; padding: 14px;"><sc-if value="{{ st.shotLabel }}" hint-placeholder-val="{{ true }}"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; background: #fff; padding: 4px 6px; color: #5b6167;">スクショ 1</span></sc-if></div>
+                  <div style="width: 200px; aspect-ratio: 9 / 19.5; border-radius: 26px; border: 1px solid #dfe5e8; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e2e9ec 10px 20px); margin-top: 32px; display: flex; align-items: flex-end; justify-content: center; padding: 14px;"><sc-if value="{{ st.shotLabel }}" hint-placeholder-val="{{ true }}"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; background: #fff; padding: 4px 6px; color: #5b6167;">スクショ 2</span></sc-if></div>
+                </div>
+              </div>
+              <div style="padding: 40px 48px 48px; background: #fff; border-top: 1px solid #dfe5e8;">
+                <div style="max-width: 760px; border: 1px dashed #c9d2d6; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #5b6167;">OPTIONAL — 紹介文（任意・自由記述）</div>
+                  <h3 style="margin: 0; font-size: 20px; font-weight: 600;">このアプリについて</h3>
+                  <div style="display: flex; flex-direction: column; gap: 10px;"><div style="height: 12px; background: #eef2f4;"></div><div style="height: 12px; background: #eef2f4;"></div><div style="height: 12px; background: #eef2f4; width: 64%;"></div></div>
+                  <div style="font-size: 12px; color: #5b6167;">見出し・本文・画像を自由に追加できるブロック。不要な場合は非表示。</div>
+                </div>
+              </div>
+              <div style="padding: 18px 48px; border-top: 1px solid #dfe5e8; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div>
+            </div>
+
+            <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+              <div style="display: flex; align-items: center; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><div style="display: flex; align-items: center; gap: 8px; margin-right: auto;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 14px; font-weight: 600;">Shima Development</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding: 6px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+              <div style="padding: 28px 20px 24px; display: flex; flex-direction: column; gap: 18px; border-bottom: 1px solid #dfe5e8;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div style="width: 64px; height: 64px; border-radius: 15px; background: repeating-linear-gradient(135deg, #eef2f4 0 8px, #e2e9ec 8px 16px); border: 1px solid #dfe5e8; flex: none;"></div>
+                  <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; background: #eef2f4; padding: 3px 6px; color: #434a4f; align-self: flex-start;">{{ st.label }}</span>
+                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"><h2 style="margin: 0; font-size: 20px; font-weight: 600;">育児アプリ名</h2><sc-if value="{{ st.soon }}" hint-placeholder-val="{{ false }}"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.08em; background: #fdf3da; color: #7d5f0d; padding: 3px 6px;">COMING SOON</span></sc-if></div>
+                    <span style="font-size: 11.5px; color: #5b6167;">無料 / アプリ内課金あり</span>
+                  </div>
+                </div>
+                <div style="font-size: 13px; line-height: 2; color: #434a4f;">誰のどんな場面を助けるアプリかを2行で。</div>
+                <div style="display: flex; gap: 8px; height: 48px;">
+                  <sc-if value="{{ st.web }}" hint-placeholder-val="{{ false }}"><div style="flex: 1.25; background: #e0b021; color: #15191c; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap;">ブラウザで使う<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px;">↗</span></div></sc-if>
+                  <sc-if value="{{ st.store }}" hint-placeholder-val="{{ true }}">
+                    <div style="flex: 1; background: #15191c; color: #fff; font-size: {{ st.spStoreSize }}; display: flex; align-items: center; justify-content: center; white-space: nowrap;">App Store</div>
+                    <div style="flex: 1; background: #15191c; color: #fff; font-size: {{ st.spStoreSize }}; display: flex; align-items: center; justify-content: center; white-space: nowrap;">Google Play</div>
+                  </sc-if>
+                  <sc-if value="{{ st.soon }}" hint-placeholder-val="{{ false }}"><div aria-disabled="true" style="flex: 1; background: #dfe5e8; color: #5b6167; font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; cursor: not-allowed;">準備中</div></sc-if>
+                </div>
+                <sc-if value="{{ st.stats }}" hint-placeholder-val="{{ true }}"><div style="display: flex; gap: 20px;"><div style="display: flex; flex-direction: column;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 17px; font-weight: 500;">4.7</span><span style="font-size: 10.5px; color: #5b6167;">平均評価</span></div><div style="display: flex; flex-direction: column;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 17px; font-weight: 500;">12,000+</span><span style="font-size: 10.5px; color: #5b6167;">DL</span></div></div></sc-if>
+              </div>
+              <div style="padding: 20px; display: flex; gap: 12px; overflow: hidden; border-bottom: 1px solid #dfe5e8;">
+                <div style="width: 148px; flex: none; aspect-ratio: 9 / 19.5; border-radius: 20px; border: 1px solid #dfe5e8; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e2e9ec 10px 20px);"></div>
+                <div style="width: 148px; flex: none; aspect-ratio: 9 / 19.5; border-radius: 20px; border: 1px solid #dfe5e8; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e2e9ec 10px 20px);"></div>
+              </div>
+              <div style="padding: 20px; background: #fff;">
+                <div style="border: 1px dashed #c9d2d6; padding: 18px; display: flex; flex-direction: column; gap: 12px;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #5b6167;">OPTIONAL — 紹介文（任意）</div>
+                  <h3 style="margin: 0; font-size: 17px; font-weight: 600;">このアプリについて</h3>
+                  <div style="display: flex; flex-direction: column; gap: 9px;"><div style="height: 12px; background: #eef2f4;"></div><div style="height: 12px; background: #eef2f4; width: 70%;"></div></div>
+                </div>
+              </div>
+              <div style="padding: 16px 20px; border-top: 1px solid #dfe5e8; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div>
+            </div>
+
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  renderVals() {
+    const products = [
+      { type: "WP THEME", name: "コーポレート向けテーマ", desc: "中小企業サイトを最短で立ち上げる構成。", price: "¥14,800" },
+      { type: "WP THEME", name: "クリニック向けテーマ", desc: "予約導線と診療時間表を標準搭載。", price: "¥16,800" },
+      { type: "HTML TEMPLATE", name: "1カラムLPテンプレ", desc: "計測タグの差し替えだけで公開可能。", price: "¥6,800" },
+      { type: "WP THEME", name: "ポートフォリオ向けテーマ", desc: "作品を主役にした軽量テーマ。", price: "¥12,800" },
+      { type: "HTML TEMPLATE", name: "採用ページテンプレ", desc: "募集要項と社員紹介のセット。", price: "¥8,800" },
+      { type: "HTML TEMPLATE", name: "イベント告知LPテンプレ", desc: "日程・会場・申込フォームを1枚に。", price: "¥7,800" }
+    ];
+    const changelog = [
+      { ver: "v1.2.16", date: "2026.09.01", note: "WordPress 6.8 に対応。予約フォームの入力チェックを改善しました。" },
+      { ver: "v1.2.15", date: "2026.07.14", note: "ヘッダーメニューの表示崩れを修正。" },
+      { ver: "v1.2.14", date: "2026.05.20", note: "ブロックパターンを3種追加。" },
+      { ver: "v1.2.13", date: "2026.03.02", note: "表示速度を改善。画像の遅延読み込みに対応。" }
+    ];
+    const open = !!(this.state && this.state.logOpen);
+    const appStates = [
+      { id: "a", title: "モバイルアプリ", note: "LABEL: MOBILE APP / ストアバッジ2つ / 評価・DLあり", label: "MOBILE APP", platform: "育児記録 / iOS・Android", store: true, web: false, soon: false, stats: true, shotLabel: true, spStoreSize: "13px" },
+      { id: "b", title: "Webアプリ（評価・DL 非表示時）", note: "LABEL: WEB APP / 「ブラウザで使う」→ /play/xxx/ / 評価・DLなし", label: "WEB APP", platform: "育児記録 / ブラウザ", store: false, web: true, soon: false, stats: false, shotLabel: true, spStoreSize: "13px" },
+      { id: "c", title: "Web・モバイル両方", note: "LABEL: WEB / MOBILE / ブラウザ＋ストア2つ / 評価・DLあり", label: "WEB / MOBILE", platform: "育児記録 / Web・iOS・Android", store: true, web: true, soon: false, stats: true, shotLabel: true, spStoreSize: "11.5px" },
+      { id: "d", title: "準備中", note: "押せない「準備中」/ COMING SOON / 評価・DL非表示 / スクショ枠のみ", label: "MOBILE APP", platform: "育児記録 / iOS・Android", store: false, web: false, soon: true, stats: false, shotLabel: false, spStoreSize: "13px" }
+    ];
+    return { appStates, changelogShown: open ? changelog : changelog.slice(0, 1), logLabel: open ? "履歴を閉じる" : "すべての履歴を見る", logIcon: open ? "−" : "＋", toggleLog: () => this.setState({ logOpen: !open }), products, productsMobile: products.slice(0, 3), topNav: [
+      { no: "01", en: "Apps", ja: "アプリ開発" },
+      { no: "02", en: "Web Design", ja: "制作・WP作業代行" },
+      { no: "03", en: "Writing", ja: "ブログ" },
+      { no: "04", en: "About", ja: "プロフィール・お問い合わせ" }
+    ] };
+  }
+}
+</script>
+
+
+</body></html>

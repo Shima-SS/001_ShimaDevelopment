@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html><head><style>x-dc,helmet,sc-if,sc-for,sc-slot{display:contents}script[type='text/x-dc']{display:none}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<style>
+  body { margin: 0; background: #e7ebed; }
+  a { color: #15191c; text-decoration: none; }
+  a:hover { color: #9a7510; }
+</style>
+</helmet>
+
+<section style="padding: 48px 40px 80px; font-family: 'IBM Plex Sans JP', sans-serif; color: #15191c; display: flex; flex-direction: column; gap: 56px;">
+
+  <div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.14em; color: #5b6167;">FRAMES 03 / WRITING &amp; INFO — 1280 &amp; 375</div>
+    <h1 style="margin: 0; font-size: 30px; font-weight: 600;">シリーズ一覧・連載トップ・記事・about・contact</h1>
+    <p style="margin: 0; font-size: 13.5px; line-height: 1.95; color: #4a5054;">ブログは「連載（シリーズ）」を軸にした構成。/blog/ でシリーズを並べ、/series/{slug}/ で連載のトップ、その下に各記事が入ります。</p>
+  </div>
+
+  <!-- WRITING TOP (SERIES INDEX) -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">06 WRITING TOP — /blog/（連載の一覧 / 記事の横断一覧は置かない）</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; gap: 28px; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;"><div style="display: flex; align-items: center; gap: 10px; margin-right: auto;"><div style="width: 20px; height: 20px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Shima Development</span></div><nav style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span>Apps</span><span>Web Design</span><span style="border-bottom: 2px solid #e0b021; padding-bottom: 2px; color: #15191c;">Writing</span><span>About</span></nav><div style="display: flex; align-items: center; gap: 12px;"><div style="width: 30px; height: 30px; border: 1px solid #c9d2d6; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167;">Q</div><div style="background: #15191c; color: #fff; font-size: 12.5px; font-weight: 500; padding: 10px 16px; border-radius: 2px;">Contact</div></div></div>
+        <div style="padding: 10px 48px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; display: flex; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;"><span>HOME</span><span>/</span><span style="color: #15191c;">WRITING</span></div>
+        <div style="padding: 56px 48px 72px; display: flex; flex-direction: column; gap: 40px;">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: baseline; gap: 16px;"><h1 style="margin: 0; font-size: 36px; font-weight: 600; line-height: 1.4; letter-spacing: -0.015em;">Writing</h1><span style="font-size: 14px; color: #5b6167;">連載一覧</span></div>
+            <div style="font-size: 15px; line-height: 2; color: #434a4f;">記事はすべて連載としてまとめています。気になるテーマの第1回からどうぞ。</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+            <sc-for list="{{ series }}" as="s" hint-placeholder-count="6">
+              <a href="/series/{{ s.slug }}/" style="background: #fff; border: 1px solid #dfe5e8; display: grid; grid-template-columns: 200px minmax(0, 1fr); color: #15191c; transition: border-color .15s;" style-hover="border-color: #e0b021;">
+                <div style="background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e3e9ec 10px 20px); border-right: 1px solid #dfe5e8; min-height: 200px;"></div>
+                <div style="padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9a7510;">{{ s.count }}</span>
+                  <div style="font-size: 19px; font-weight: 600; line-height: 1.5;">{{ s.title }}</div>
+                  <div style="font-size: 13px; line-height: 1.9; color: #5b6167; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">{{ s.desc }}</div>
+                  <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid #eef2f4; display: flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;"><span>最終更新 {{ s.updated }}</span><span style="margin-left: auto; font-size: 12px;">→</span></div>
+                </div>
+              </a>
+            </sc-for>
+          </div>
+          <div style="border: 1.5px dashed #c9d2d6; padding: 28px; display: flex; flex-direction: column; gap: 16px; margin-top: 16px;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #5b6167;">CONDITIONAL — 該当なしのときは非表示</div>
+            <div style="display: flex; align-items: baseline; gap: 14px;"><h2 style="margin: 0; font-size: 20px; font-weight: 600;">単発の記事</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #5b6167;">ONE-OFF</span></div>
+            <div style="display: flex; flex-direction: column;">
+              <sc-for list="{{ oneoffs }}" as="p" hint-placeholder-count="3">
+                <div style="display: flex; align-items: center; gap: 24px; padding: 16px 0; border-top: 1px solid #dfe5e8;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167; width: 84px; flex: none;">{{ p.date }}</span><span style="font-size: 15px; font-weight: 500;">{{ p.title }}</span><span style="margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167;">→</span></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="background: #15191c; color: #f4f6f7;"><div style="padding: 48px 48px 32px; display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 32px;"><div style="display: flex; flex-direction: column; gap: 12px;"><div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 16px; font-weight: 600;">Shima Development</span></div><div style="font-size: 12px; line-height: 1.9; color: #a9b2b7;">Webデザイン・WordPress作業代行 /<br>アプリケーション開発</div></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">SHOP</div><span style="font-size: 12.5px; color: #d6dcdf;">商品一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">WPテーマ</span><span style="font-size: 12.5px; color: #d6dcdf;">HTMLテンプレート</span></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">APPS &amp; WRITING</div><span style="font-size: 12.5px; color: #d6dcdf;">アプリ一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">記事一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">シリーズ一覧</span></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">INFO</div><span style="font-size: 12.5px; color: #d6dcdf;">About</span><span style="font-size: 12.5px; color: #d6dcdf;">Contact</span><span style="font-size: 12.5px; color: #d6dcdf;">特定商取引法・プライバシー</span></div></div><div style="padding: 16px 48px; border-top: 1px solid #2c3236; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #a9b2b7;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div></div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><div style="display: flex; align-items: center; gap: 8px; margin-right: auto;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 14px; font-weight: 600;">Shima Development</span></div><div style="width: 44px; height: 44px; display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; margin-right: -12px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+        <div style="padding: 8px 20px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; display: flex; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167;"><span>HOME</span><span>/</span><span style="color: #15191c;">WRITING</span></div>
+        <div style="padding: 32px 20px 48px; display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; align-items: baseline; gap: 12px;"><h1 style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.4;">Writing</h1><span style="font-size: 13px; color: #5b6167;">連載一覧</span></div>
+            <div style="font-size: 14px; line-height: 2; color: #434a4f;">記事はすべて連載としてまとめています。</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <sc-for list="{{ seriesMobile }}" as="s" hint-placeholder-count="4">
+              <a href="/series/{{ s.slug }}/" style="background: #fff; border: 1px solid #dfe5e8; display: flex; flex-direction: column; color: #15191c;">
+                <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e3e9ec 10px 20px); border-bottom: 1px solid #dfe5e8;"></div>
+                <div style="padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #9a7510;">{{ s.count }}</span>
+                  <div style="font-size: 17px; font-weight: 600; line-height: 1.5;">{{ s.title }}</div>
+                  <div style="font-size: 12.5px; line-height: 1.9; color: #5b6167; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">{{ s.desc }}</div>
+                  <div style="padding-top: 10px; border-top: 1px solid #eef2f4; display: flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167;"><span>最終更新 {{ s.updated }}</span><span style="margin-left: auto; font-size: 12px;">→</span></div>
+                </div>
+              </a>
+            </sc-for>
+          </div>
+          <div style="border: 1.5px dashed #c9d2d6; padding: 18px; display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #5b6167;">CONDITIONAL — 該当なしのときは非表示</div>
+            <div style="display: flex; align-items: baseline; gap: 10px;"><h2 style="margin: 0; font-size: 17px; font-weight: 600;">単発の記事</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #5b6167;">ONE-OFF</span></div>
+            <div style="display: flex; flex-direction: column;">
+              <sc-for list="{{ oneoffs }}" as="p" hint-placeholder-count="3">
+                <div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-top: 1px solid #dfe5e8;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">{{ p.date }}</span><span style="font-size: 14px; font-weight: 500; line-height: 1.6;">{{ p.title }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="background: #15191c; color: #f4f6f7;"><div style="padding: 32px 20px 24px; display: flex; flex-direction: column; gap: 22px;"><div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 15px; font-weight: 600;">Shima Development</span></div><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; font-size: 12.5px; color: #d6dcdf;"><span>商品一覧</span><span>アプリ一覧</span><span>記事一覧</span><span>シリーズ一覧</span><span>About</span><span>Contact</span></div><div style="background: #e0b021; color: #15191c; font-size: 14px; font-weight: 600; padding: 14px; text-align: center; border-radius: 2px;">お問い合わせ</div></div><div style="padding: 14px 20px; border-top: 1px solid #2c3236; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #a9b2b7;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SERIES TOP -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">07 SERIES TOP — /series/{slug}/（連載の目次 / 他連載の記事への直リンクは置かない）</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; gap: 28px; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;"><div style="display: flex; align-items: center; gap: 10px; margin-right: auto;"><div style="width: 20px; height: 20px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Shima Development</span></div><nav style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span>Apps</span><span>Web Design</span><span style="border-bottom: 2px solid #e0b021; padding-bottom: 2px; color: #15191c;">Writing</span><span>About</span></nav><div style="display: flex; align-items: center; gap: 12px;"><div style="width: 30px; height: 30px; border: 1px solid #c9d2d6; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167;">Q</div><div style="background: #15191c; color: #fff; font-size: 12.5px; font-weight: 500; padding: 10px 16px; border-radius: 2px;">Contact</div></div></div>
+        <div style="padding: 10px 48px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; display: flex; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;"><span>HOME</span><span>/</span><span>WRITING</span><span>/</span><span style="color: #15191c;">小さなサイトの設計手帳</span></div>
+        <div style="background: #dfe5e8; padding: 64px 48px 56px; border-bottom: 1px solid #d3dade;">
+          <div style="max-width: 760px; display: flex; flex-direction: column; gap: 18px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #7d5f0d;">SERIES — 全12回</span>
+            <h1 style="margin: 0; font-size: 40px; font-weight: 600; line-height: 1.4; letter-spacing: -0.015em;">小さなサイトの設計手帳</h1>
+            <div style="font-size: 15px; line-height: 2; color: #434a4f; text-wrap: pretty;">個人・小規模事業のサイトを、ページ数を増やさずに伝わるものにするための設計手順を、1回1テーマで順に解説します。ヒアリングから情報の並べ方、レイアウトの判断まで、実際の案件で使っている考え方をそのまま書いています。第1回から順に読むことを想定した構成です。</div>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;">最終更新 2026.09.14</span>
+          </div>
+        </div>
+        <div style="padding: 48px 48px 72px; display: flex; flex-direction: column; gap: 40px;">
+          <div style="max-width: 880px; display: flex; flex-direction: column; gap: 32px;">
+            <a href="#" style="align-self: flex-start; height: 52px; background: #15191c; color: #fff; font-size: 14.5px; font-weight: 500; padding: 0 32px; display: flex; align-items: center; gap: 12px; border-radius: 2px;" style-hover="background: #2c3236; color: #fff;">第1回から読む<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px;">→</span></a>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; align-items: baseline; gap: 14px;"><h2 style="margin: 0; font-size: 20px; font-weight: 600;">目次</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #5b6167;">CONTENTS — 9 / 12 公開</span></div>
+              <div style="background: #fff; border: 1px solid #dfe5e8;">
+                <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="12">
+                  <sc-if value="{{ e.published }}" hint-placeholder-val="{{ true }}">
+                    <a href="#" style="display: grid; grid-template-columns: 56px minmax(0, 1fr) 100px; align-items: center; gap: 16px; padding: 18px 24px; border-bottom: 1px solid #eef2f4; color: #15191c;" style-hover="background: #fdf3da; color: #15191c;">
+                      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; color: #9a7510;">{{ e.no }}</span>
+                      <span style="font-size: 15px; font-weight: 500; line-height: 1.6;">{{ e.title }}</span>
+                      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167; text-align: right;">{{ e.date }}</span>
+                    </a>
+                  </sc-if>
+                  <sc-if value="{{ e.soon }}" hint-placeholder-val="{{ false }}">
+                    <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr) 100px; align-items: center; gap: 16px; padding: 18px 24px; border-bottom: 1px solid #eef2f4; background: #f9fafb; cursor: default;">
+                      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; color: #a9b2b7;">{{ e.no }}</span>
+                      <span style="font-size: 15px; color: #8b9196;">{{ e.title }}</span>
+                      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8b9196; text-align: right;">準備中</span>
+                    </div>
+                  </sc-if>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 40px; border-top: 1px solid #dfe5e8;">
+            <div style="display: flex; align-items: baseline; gap: 14px;"><h2 style="margin: 0; font-size: 20px; font-weight: 600;">ほかの連載</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #5b6167;">OTHER SERIES</span><a href="#" style="margin-left: auto; display: flex; gap: 8px; font-size: 13px; font-weight: 500; border-bottom: 1px solid #15191c; padding-bottom: 3px;" style-hover="color: #9a7510; border-bottom-color: #e0b021;">連載一覧へ<span style="font-family: 'IBM Plex Mono', monospace;">→</span></a></div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+              <sc-for list="{{ otherSeries }}" as="s" hint-placeholder-count="2">
+                <a href="/series/{{ s.slug }}/" style="background: #fff; border: 1px solid #dfe5e8; display: grid; grid-template-columns: 200px minmax(0, 1fr); color: #15191c;" style-hover="border-color: #e0b021;">
+                  <div style="background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e3e9ec 10px 20px); border-right: 1px solid #dfe5e8; min-height: 200px;"></div>
+                  <div style="padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9a7510;">{{ s.count }}</span>
+                    <div style="font-size: 19px; font-weight: 600; line-height: 1.5;">{{ s.title }}</div>
+                    <div style="font-size: 13px; line-height: 1.9; color: #5b6167; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">{{ s.desc }}</div>
+                    <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid #eef2f4; display: flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;"><span>最終更新 {{ s.updated }}</span><span style="margin-left: auto; font-size: 12px;">→</span></div>
+                  </div>
+                </a>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="background: #15191c; color: #f4f6f7;"><div style="padding: 48px 48px 32px; display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 32px;"><div style="display: flex; flex-direction: column; gap: 12px;"><div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 16px; font-weight: 600;">Shima Development</span></div><div style="font-size: 12px; line-height: 1.9; color: #a9b2b7;">Webデザイン・WordPress作業代行 /<br>アプリケーション開発</div></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">SHOP</div><span style="font-size: 12.5px; color: #d6dcdf;">商品一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">WPテーマ</span><span style="font-size: 12.5px; color: #d6dcdf;">HTMLテンプレート</span></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">APPS &amp; WRITING</div><span style="font-size: 12.5px; color: #d6dcdf;">アプリ一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">記事一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">シリーズ一覧</span></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">INFO</div><span style="font-size: 12.5px; color: #d6dcdf;">About</span><span style="font-size: 12.5px; color: #d6dcdf;">Contact</span><span style="font-size: 12.5px; color: #d6dcdf;">特定商取引法・プライバシー</span></div></div><div style="padding: 16px 48px; border-top: 1px solid #2c3236; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #a9b2b7;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div></div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><div style="display: flex; align-items: center; gap: 8px; margin-right: auto;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 14px; font-weight: 600;">Shima Development</span></div><div style="width: 44px; height: 44px; display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; margin-right: -12px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+        <div style="padding: 8px 20px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; display: flex; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167; white-space: nowrap; overflow: hidden;"><span>HOME</span><span>/</span><span>WRITING</span><span>/</span><span style="color: #15191c; overflow: hidden; text-overflow: ellipsis;">小さなサイトの設計手帳</span></div>
+        <div style="background: #dfe5e8; padding: 36px 20px 32px; border-bottom: 1px solid #d3dade; display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #7d5f0d;">SERIES — 全12回</span>
+          <h1 style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.45;">小さなサイトの設計手帳</h1>
+          <div style="font-size: 14px; line-height: 2; color: #434a4f;">個人・小規模事業のサイトを、ページ数を増やさずに伝わるものにするための設計手順を、1回1テーマで順に解説します。第1回から順に読むことを想定した構成です。</div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">最終更新 2026.09.14</span>
+        </div>
+        <div style="padding: 24px 20px 48px; display: flex; flex-direction: column; gap: 28px;">
+          <a href="#" style="height: 52px; background: #15191c; color: #fff; font-size: 14.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 2px;">第1回から読む<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px;">→</span></a>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: baseline; gap: 10px;"><h2 style="margin: 0; font-size: 17px; font-weight: 600;">目次</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #5b6167;">9 / 12 公開</span></div>
+            <div style="background: #fff; border: 1px solid #dfe5e8;">
+              <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="12">
+                <sc-if value="{{ e.published }}" hint-placeholder-val="{{ true }}">
+                  <a href="#" style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-bottom: 1px solid #eef2f4; color: #15191c;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; color: #9a7510;">{{ e.no }}</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">{{ e.date }}</span></div>
+                    <span style="font-size: 14px; font-weight: 500; line-height: 1.6;">{{ e.title }}</span>
+                  </a>
+                </sc-if>
+                <sc-if value="{{ e.soon }}" hint-placeholder-val="{{ false }}">
+                  <div style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-bottom: 1px solid #eef2f4; background: #f9fafb;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; color: #a9b2b7;">{{ e.no }}</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #8b9196;">準備中</span></div>
+                    <span style="font-size: 14px; line-height: 1.6; color: #8b9196;">{{ e.title }}</span>
+                  </div>
+                </sc-if>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 28px; border-top: 1px solid #dfe5e8;">
+            <div style="display: flex; align-items: baseline; gap: 10px;"><h2 style="margin: 0; font-size: 17px; font-weight: 600;">ほかの連載</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #5b6167;">OTHER SERIES</span></div>
+            <sc-for list="{{ otherSeries }}" as="s" hint-placeholder-count="2">
+              <a href="/series/{{ s.slug }}/" style="background: #fff; border: 1px solid #dfe5e8; display: flex; flex-direction: column; color: #15191c;">
+                <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #eef2f4 0 10px, #e3e9ec 10px 20px); border-bottom: 1px solid #dfe5e8;"></div>
+                <div style="padding: 18px; display: flex; flex-direction: column; gap: 8px;">
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #9a7510;">{{ s.count }}</span>
+                  <div style="font-size: 17px; font-weight: 600; line-height: 1.5;">{{ s.title }}</div>
+                  <div style="font-size: 12.5px; line-height: 1.9; color: #5b6167; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">{{ s.desc }}</div>
+                  <div style="padding-top: 10px; border-top: 1px solid #eef2f4; display: flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167;"><span>最終更新 {{ s.updated }}</span><span style="margin-left: auto; font-size: 12px;">→</span></div>
+                </div>
+              </a>
+            </sc-for>
+            <a href="#" style="align-self: flex-start; min-height: 44px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500;"><span style="border-bottom: 1px solid #15191c; padding-bottom: 3px;">連載一覧へ →</span></a>
+          </div>
+        </div>
+        <div style="background: #15191c; color: #f4f6f7;"><div style="padding: 32px 20px 24px; display: flex; flex-direction: column; gap: 22px;"><div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 15px; font-weight: 600;">Shima Development</span></div><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; font-size: 12.5px; color: #d6dcdf;"><span>商品一覧</span><span>アプリ一覧</span><span>記事一覧</span><span>シリーズ一覧</span><span>About</span><span>Contact</span></div><div style="background: #e0b021; color: #15191c; font-size: 14px; font-weight: 600; padding: 14px; text-align: center; border-radius: 2px;">お問い合わせ</div></div><div style="padding: 14px 20px; border-top: 1px solid #2c3236; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #a9b2b7;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ARTICLE -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">08 ARTICLE — /series/{slug}/{post}/（前後ナビは同じ連載内のみ / サイドバーは目次だけ）</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; gap: 28px; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;"><div style="display: flex; align-items: center; gap: 10px; margin-right: auto;"><div style="width: 20px; height: 20px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Shima Development</span></div><nav style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span>Apps</span><span>Web Design</span><span style="border-bottom: 2px solid #e0b021; padding-bottom: 2px; color: #15191c;">Writing</span><span>About</span></nav><div style="display: flex; align-items: center; gap: 12px;"><div style="width: 30px; height: 30px; border: 1px solid #c9d2d6; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167;">Q</div><div style="background: #15191c; color: #fff; font-size: 12.5px; font-weight: 500; padding: 10px 16px; border-radius: 2px;">Contact</div></div></div>
+        <div style="padding: 10px 48px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; display: flex; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;"><span>HOME</span><span>/</span><span>WRITING</span><span>/</span><span>小さなサイトの設計手帳</span><span>/</span><span style="color: #15191c;">情報を並べる順番</span></div>
+        <div style="padding: 56px 48px 72px; display: grid; grid-template-columns: minmax(0, 1fr) 720px minmax(0, 1fr); gap: 48px; align-items: start;">
+          <div></div>
+          <article style="display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 12px; font-size: 13px;"><a href="/series/site-techo/" style="color: #9a7510; border-bottom: 1px solid #e0b021; padding-bottom: 1px;" style-hover="color: #15191c;">小さなサイトの設計手帳</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5b6167;">第3回</span></div>
+              <h1 style="margin: 0; font-size: 36px; font-weight: 600; line-height: 1.45; letter-spacing: -0.015em; text-wrap: pretty;">情報を並べる順番 ── 優先順位のつけ方</h1>
+              <div style="display: flex; gap: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;"><span>公開 2026.05.18</span><span>更新 2026.09.01</span></div>
+            </div>
+            <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e2e9ec 12px 24px); border: 1px solid #dfe5e8; margin-top: 8px;"></div>
+            <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 16px;">
+            <h2 id="h-1" style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.5; padding-top: 16px;">サイトマップより先に決めること</h2>
+            <p style="font-size: 15px; line-height: 2; margin: 0; text-wrap: pretty;">本文のテキストが入ります。サイトマップを描き始める前に、誰に何をしてもらうサイトなのかを一文で書けるかどうかを確認します。ここが曖昧なままページを並べても、あとで必ず組み替えることになります。</p>
+            <p style="font-size: 15px; line-height: 2; margin: 0; text-wrap: pretty;">段落の間は1行分あけます。1行はおよそ35〜40文字を目安に、読みやすさを優先した幅に収めています。</p>
+            <h3 id="h-2" style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.6; padding-top: 8px;">一文で書けるかを確かめる</h3>
+            <p style="font-size: 15px; line-height: 2; margin: 0; text-wrap: pretty;">次の3点が埋まれば、ページ構成の大半は自然に決まります。</p>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.9;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none; margin-top: 12px;"></span><span>誰が読むのか（いちばん大事な読者を1人に絞る）</span></li>
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.9;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none; margin-top: 12px;"></span><span>読んだあと何をしてほしいのか</span></li>
+              <li style="display: flex; gap: 12px; font-size: 15px; line-height: 1.9;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none; margin-top: 12px;"></span><span>そのために最低限伝えるべきことは何か</span></li>
+            </ul>
+            <blockquote style="margin: 0; padding: 4px 0 4px 20px; border-left: 3px solid #e0b021; font-size: 15px; line-height: 2; color: #434a4f;">引用文が入ります。ページを増やすほど、伝えたいことは薄まっていく。<span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167; margin-top: 6px;">— 出典名</span></blockquote>
+            <h2 id="h-3" style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.5; padding-top: 16px;">ページ一覧を書き出す</h2>
+            <p style="font-size: 15px; line-height: 2; margin: 0; text-wrap: pretty;">書き出したページは、テキストのまま階層をつけて並べます。最初から図にしないのがポイントです。</p>
+            <div style="background: #15191c; color: #f4f6f7; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px; overflow: hidden;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #a9b2b7;">sitemap.txt</span>
+              <pre style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.9; white-space: pre-wrap; color: #f4f6f7;">/            トップ
+├ /service/  サービス
+├ /works/    実績
+└ /contact/  お問い合わせ</pre>
+            </div>
+            <h3 id="h-4" style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.6; padding-top: 8px;">図にするのは最後</h3>
+            <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+              <div style="aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e2e9ec 12px 24px); border: 1px solid #dfe5e8;"></div>
+              <figcaption style="font-size: 12px; line-height: 1.8; color: #5b6167;">図1　キャプションが入ります。画像の内容を1〜2行で補足します。</figcaption>
+            </figure>
+            <p style="font-size: 15px; line-height: 2; margin: 0; text-wrap: pretty;">本文の締めくくりの段落が入ります。次回は、書き出したページを1カラムで足りるかどうか判断する基準について書きます。</p>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 16px; align-items: center; padding-top: 32px; margin-top: 16px; border-top: 1px solid #dfe5e8;">
+              <a href="#" style="background: #fff; border: 1px solid #dfe5e8; padding: 18px; display: flex; flex-direction: column; gap: 8px; color: #15191c;" style-hover="border-color: #e0b021; color: #15191c;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">← 第2回</span><span style="font-size: 14px; font-weight: 500; line-height: 1.6;">ヒアリングで聞くこと</span></a>
+              <a href="#" style="font-size: 13px; font-weight: 500; border-bottom: 1px solid #15191c; padding-bottom: 3px; white-space: nowrap;" style-hover="color: #9a7510; border-bottom-color: #e0b021;">連載の目次へ戻る</a>
+              <a href="#" style="background: #fff; border: 1px solid #dfe5e8; padding: 18px; display: flex; flex-direction: column; gap: 8px; text-align: right; color: #15191c;" style-hover="border-color: #e0b021; color: #15191c;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">第4回 →</span><span style="font-size: 14px; font-weight: 500; line-height: 1.6;">サイトマップを描く前に決めておくこと</span></a>
+            </div>
+          </article>
+          <aside style="position: sticky; top: 24px; align-self: start; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;"><span style="font-size: 13px; font-weight: 600;">目次</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.08em; color: #5b6167;">STICKY</span></div>
+            <nav style="display: flex; flex-direction: column; border-left: 1px solid #dfe5e8;">
+              <a href="#h-1" style="font-size: 12.5px; line-height: 1.6; padding: 7px 0 7px 14px; margin-left: -1px; border-left: 2px solid #e0b021; color: #15191c; font-weight: 500;">サイトマップより先に決めること</a>
+              <a href="#h-2" style="font-size: 12px; line-height: 1.6; padding: 6px 0 6px 26px; color: #5b6167;">一文で書けるかを確かめる</a>
+              <a href="#h-3" style="font-size: 12.5px; line-height: 1.6; padding: 7px 0 7px 14px; color: #5b6167;">ページ一覧を書き出す</a>
+              <a href="#h-4" style="font-size: 12px; line-height: 1.6; padding: 6px 0 6px 26px; color: #5b6167;">図にするのは最後</a>
+            </nav>
+          </aside>
+        </div>
+        <div style="padding: 48px 48px 64px; background: #fff; border-top: 1px solid #dfe5e8; display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; align-items: baseline; gap: 14px;"><h2 style="margin: 0; font-size: 20px; font-weight: 600;">この連載のほかの回</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: #5b6167;">SAME SERIES</span></div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+            <sc-for list="{{ sameSeries }}" as="r" hint-placeholder-count="3">
+              <a href="#" style="background: #fff; border: 1px solid #dfe5e8; padding: 18px; display: flex; flex-direction: column; gap: 10px; color: #15191c;" style-hover="border-color: #e0b021; color: #15191c;">
+                <div style="display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;"><span>{{ r.date }}</span><span style="width: 1px; height: 10px; background: #c9d2d6;"></span><span style="color: #9a7510;">{{ r.no }}</span></div>
+                <div style="font-size: 16px; font-weight: 600; line-height: 1.6;">{{ r.title }}</div>
+                <div style="font-size: 12px; line-height: 1.8; color: #5b6167; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ r.excerpt }}</div>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background: #15191c; color: #f4f6f7;"><div style="padding: 48px 48px 32px; display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 32px;"><div style="display: flex; flex-direction: column; gap: 12px;"><div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 16px; font-weight: 600;">Shima Development</span></div><div style="font-size: 12px; line-height: 1.9; color: #a9b2b7;">Webデザイン・WordPress作業代行 /<br>アプリケーション開発</div></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">SHOP</div><span style="font-size: 12.5px; color: #d6dcdf;">商品一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">WPテーマ</span><span style="font-size: 12.5px; color: #d6dcdf;">HTMLテンプレート</span></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">APPS &amp; WRITING</div><span style="font-size: 12.5px; color: #d6dcdf;">アプリ一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">記事一覧</span><span style="font-size: 12.5px; color: #d6dcdf;">シリーズ一覧</span></div><div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #e0b021;">INFO</div><span style="font-size: 12.5px; color: #d6dcdf;">About</span><span style="font-size: 12.5px; color: #d6dcdf;">Contact</span><span style="font-size: 12.5px; color: #d6dcdf;">特定商取引法・プライバシー</span></div></div><div style="padding: 16px 48px; border-top: 1px solid #2c3236; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #a9b2b7;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div></div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><div style="display: flex; align-items: center; gap: 8px; margin-right: auto;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 14px; font-weight: 600;">Shima Development</span></div><div style="width: 44px; height: 44px; display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; margin-right: -12px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+        <div style="padding: 8px 20px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; display: flex; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #5b6167; white-space: nowrap; overflow: hidden;"><span>HOME</span><span>/</span><span>WRITING</span><span>/</span><span>小さなサイトの…</span><span>/</span><span style="color: #15191c; overflow: hidden; text-overflow: ellipsis;">情報を並べる順番</span></div>
+        <article style="padding: 28px 20px 40px; display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 12.5px;"><a href="/series/site-techo/" style="color: #9a7510; border-bottom: 1px solid #e0b021; padding-bottom: 1px;">小さなサイトの設計手帳</a><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167;">第3回</span></div>
+            <h1 style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.45;">情報を並べる順番 ── 優先順位のつけ方</h1>
+            <div style="display: flex; gap: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;"><span>公開 2026.05.18</span><span>更新 2026.09.01</span></div>
+          </div>
+          <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e2e9ec 12px 24px); border: 1px solid #dfe5e8; margin: 0 -20px;"></div>
+          <div style="background: #fff; border: 1px solid #dfe5e8;">
+            <div sc-camel-on-click="{{ toggleToc }}" style="min-height: 48px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer;"><span style="font-size: 13.5px; font-weight: 600;">目次</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #5b6167;">{{ tocIcon }}</span></div>
+            <sc-if value="{{ tocOpen }}" hint-placeholder-val="{{ false }}">
+              <nav style="display: flex; flex-direction: column; padding: 4px 16px 14px; border-top: 1px solid #eef2f4;">
+                <a href="#" style="font-size: 13px; line-height: 1.6; padding: 9px 0;">サイトマップより先に決めること</a>
+                <a href="#" style="font-size: 12.5px; line-height: 1.6; padding: 7px 0 7px 14px; color: #5b6167;">一文で書けるかを確かめる</a>
+                <a href="#" style="font-size: 13px; line-height: 1.6; padding: 9px 0;">ページ一覧を書き出す</a>
+                <a href="#" style="font-size: 12.5px; line-height: 1.6; padding: 7px 0 7px 14px; color: #5b6167;">図にするのは最後</a>
+              </nav>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <h2 id="h-1" style="margin: 0; font-size: 21px; font-weight: 600; line-height: 1.5; padding-top: 8px;">サイトマップより先に決めること</h2>
+            <p style="font-size: 14px; line-height: 2; margin: 0; text-wrap: pretty;">本文のテキストが入ります。サイトマップを描き始める前に、誰に何をしてもらうサイトなのかを一文で書けるかどうかを確認します。ここが曖昧なままページを並べても、あとで必ず組み替えることになります。</p>
+            <p style="font-size: 14px; line-height: 2; margin: 0; text-wrap: pretty;">段落の間は1行分あけます。1行はおよそ35〜40文字を目安に、読みやすさを優先した幅に収めています。</p>
+            <h3 id="h-2" style="margin: 0; font-size: 17px; font-weight: 600; line-height: 1.6; padding-top: 8px;">一文で書けるかを確かめる</h3>
+            <p style="font-size: 14px; line-height: 2; margin: 0; text-wrap: pretty;">次の3点が埋まれば、ページ構成の大半は自然に決まります。</p>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+              <li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.9;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none; margin-top: 11px;"></span><span>誰が読むのか（いちばん大事な読者を1人に絞る）</span></li>
+              <li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.9;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none; margin-top: 11px;"></span><span>読んだあと何をしてほしいのか</span></li>
+              <li style="display: flex; gap: 12px; font-size: 14px; line-height: 1.9;"><span style="width: 6px; height: 6px; background: #e0b021; flex: none; margin-top: 11px;"></span><span>そのために最低限伝えるべきことは何か</span></li>
+            </ul>
+            <blockquote style="margin: 0; padding: 4px 0 4px 16px; border-left: 3px solid #e0b021; font-size: 14px; line-height: 2; color: #434a4f;">引用文が入ります。ページを増やすほど、伝えたいことは薄まっていく。<span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #5b6167; margin-top: 6px;">— 出典名</span></blockquote>
+            <h2 id="h-3" style="margin: 0; font-size: 21px; font-weight: 600; line-height: 1.5; padding-top: 8px;">ページ一覧を書き出す</h2>
+            <p style="font-size: 14px; line-height: 2; margin: 0; text-wrap: pretty;">書き出したページは、テキストのまま階層をつけて並べます。最初から図にしないのがポイントです。</p>
+            <div style="background: #15191c; color: #f4f6f7; padding: 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #a9b2b7;">sitemap.txt</span>
+              <pre style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.9; white-space: pre-wrap; color: #f4f6f7;">/            トップ
+├ /service/  サービス
+├ /works/    実績
+└ /contact/  お問い合わせ</pre>
+            </div>
+            <h3 id="h-4" style="margin: 0; font-size: 17px; font-weight: 600; line-height: 1.6; padding-top: 8px;">図にするのは最後</h3>
+            <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+              <div style="aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, #eef2f4 0 12px, #e2e9ec 12px 24px); border: 1px solid #dfe5e8;"></div>
+              <figcaption style="font-size: 11.5px; line-height: 1.8; color: #5b6167;">図1　キャプションが入ります。画像の内容を1〜2行で補足します。</figcaption>
+            </figure>
+            <p style="font-size: 14px; line-height: 2; margin: 0; text-wrap: pretty;">本文の締めくくりの段落が入ります。次回は、書き出したページを1カラムで足りるかどうか判断する基準について書きます。</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 28px; border-top: 1px solid #dfe5e8;">
+            <a href="#" style="background: #fff; border: 1px solid #dfe5e8; padding: 16px; display: flex; flex-direction: column; gap: 6px; color: #15191c;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">← 第2回</span><span style="font-size: 14px; font-weight: 500; line-height: 1.6;">ヒアリングで聞くこと</span></a>
+            <a href="#" style="background: #fff; border: 1px solid #dfe5e8; padding: 16px; display: flex; flex-direction: column; gap: 6px; text-align: right; color: #15191c;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">第4回 →</span><span style="font-size: 14px; font-weight: 500; line-height: 1.6;">サイトマップを描く前に決めておくこと</span></a>
+            <a href="#" style="align-self: center; min-height: 44px; display: flex; align-items: center;"><span style="font-size: 13px; font-weight: 500; border-bottom: 1px solid #15191c; padding-bottom: 3px;">連載の目次へ戻る</span></a>
+          </div>
+        </article>
+        <div style="padding: 32px 20px 40px; background: #fff; border-top: 1px solid #dfe5e8; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; align-items: baseline; gap: 10px;"><h2 style="margin: 0; font-size: 17px; font-weight: 600;">この連載のほかの回</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #5b6167;">SAME SERIES</span></div>
+          <sc-for list="{{ sameSeries }}" as="r" hint-placeholder-count="3">
+              <a href="#" style="background: #fff; border: 1px solid #dfe5e8; padding: 18px; display: flex; flex-direction: column; gap: 10px; color: #15191c;" style-hover="border-color: #e0b021; color: #15191c;">
+                <div style="display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;"><span>{{ r.date }}</span><span style="width: 1px; height: 10px; background: #c9d2d6;"></span><span style="color: #9a7510;">{{ r.no }}</span></div>
+                <div style="font-size: 15px; font-weight: 600; line-height: 1.6;">{{ r.title }}</div>
+                <div style="font-size: 12px; line-height: 1.8; color: #5b6167; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ r.excerpt }}</div>
+              </a>
+          </sc-for>
+        </div>
+        <div style="background: #15191c; color: #f4f6f7;"><div style="padding: 32px 20px 24px; display: flex; flex-direction: column; gap: 22px;"><div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; background: #e0b021; border-radius: 2px;"></div><span style="font-size: 15px; font-weight: 600;">Shima Development</span></div><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; font-size: 12.5px; color: #d6dcdf;"><span>商品一覧</span><span>アプリ一覧</span><span>記事一覧</span><span>シリーズ一覧</span><span>About</span><span>Contact</span></div><div style="background: #e0b021; color: #15191c; font-size: 14px; font-weight: 600; padding: 14px; text-align: center; border-radius: 2px;">お問い合わせ</div></div><div style="padding: 14px 20px; border-top: 1px solid #2c3236; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #a9b2b7;"><span>© 2026 SHIMA DEVELOPMENT</span><span>GITHUB</span></div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">09 ABOUT — /about/</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 16px; font-weight: 600;">Shima Development</span><div style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span>Apps</span><span>Web Design</span><span>Writing</span><span style="border-bottom: 2px solid #e0b021; padding-bottom: 2px;">About</span></div></div>
+        <div style="padding: 10px 48px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">HOME / ABOUT</div>
+        <div style="padding: 56px 48px 72px;">
+          <div style="max-width: 720px; display: flex; flex-direction: column; gap: 18px;">
+            <h2 style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.4;">個人開発者 shima</h2>
+            <div style="height: 8px; width: 110px; background: #e0b021;"></div>
+            <div style="display: flex; flex-direction: column; gap: 10px; max-width: 62ch;"><div style="height: 12px; background: #eef2f4;"></div><div style="height: 12px; background: #eef2f4;"></div><div style="height: 12px; background: #eef2f4;"></div><div style="height: 12px; background: #eef2f4; width: 66%;"></div></div>
+            <div style="padding-top: 16px; display: flex;"><a href="/contact/" style="height: 48px; background: #15191c; color: #fff; font-size: 13.5px; font-weight: 500; padding: 0 28px; display: flex; align-items: center; gap: 10px; border-radius: 2px;" style-hover="background: #2c3236; color: #fff;">お問い合わせはこちら<span style="font-family: 'IBM Plex Mono', monospace;">→</span></a></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 14px; font-weight: 600;">Shima Development</span><div style="display: flex; flex-direction: column; gap: 4px; padding: 6px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+        <div style="padding: 32px 20px 40px; display: flex; flex-direction: column; gap: 12px;">
+          <h2 style="margin: 0; font-size: 24px; font-weight: 600;">個人開発者 shima</h2>
+          <div style="height: 6px; width: 88px; background: #e0b021;"></div>
+          <div style="display: flex; flex-direction: column; gap: 9px;"><div style="height: 12px; background: #eef2f4;"></div><div style="height: 12px; background: #eef2f4;"></div><div style="height: 12px; background: #eef2f4; width: 70%;"></div></div>
+          <a href="/contact/" style="margin-top: 16px; height: 48px; background: #15191c; color: #fff; font-size: 13.5px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 2px;">お問い合わせはこちら<span style="font-family: 'IBM Plex Mono', monospace;">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; color: #5b6167; border-bottom: 1px solid #d3dade; padding-bottom: 8px;">10 CONTACT — /contact/</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="flex: none; width: 1280px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 16px; font-weight: 600;">Shima Development</span><div style="display: flex; gap: 24px; font-size: 13px; color: #434a4f;"><span>Apps</span><span>Web Design</span><span>Writing</span><span style="border-bottom: 2px solid #e0b021; padding-bottom: 2px;">About</span></div></div>
+        <div style="padding: 10px 48px; background: #eef2f4; border-bottom: 1px solid #dfe5e8; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #5b6167;">HOME / CONTACT</div>
+        <div style="padding: 56px 48px 72px;">
+          <div style="max-width: 720px; display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <h2 style="margin: 0; font-size: 32px; font-weight: 600;">お問い合わせ</h2>
+              <div style="font-size: 13.5px; line-height: 2; color: #434a4f;">内容を確認のうえ、2営業日以内にご返信します。</div>
+            </div>
+            <div style="background: #fff; border: 1px solid #dfe5e8; padding: 32px; display: flex; flex-direction: column; gap: 22px;">
+              <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12.5px; font-weight: 500;">お名前 <span style="color: #9a7510;">*</span></span><div style="border: 1px solid #c9d2d6; padding: 14px; font-size: 13px; color: #8b9196;">山田 太郎</div></div>
+              <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12.5px; font-weight: 500;">メールアドレス <span style="color: #9a7510;">*</span></span><div style="border: 1px solid #c9d2d6; padding: 14px; font-size: 13px; color: #8b9196;">mail@example.com</div></div>
+              <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12.5px; font-weight: 500;">ご相談内容 <span style="color: #9a7510;">*</span></span><div style="border: 1px solid #c9d2d6; padding: 14px; height: 160px; font-size: 13px; color: #8b9196;">ご相談内容をご記入ください。</div></div>
+              <div style="display: flex; gap: 10px; align-items: flex-start; padding-top: 6px; border-top: 1px solid #eef2f4;"><div style="width: 18px; height: 18px; border: 1px solid #c9d2d6; flex: none; margin-top: 2px;"></div><div style="font-size: 12px; line-height: 1.9; color: #5b6167;"><span style="color: #15191c; border-bottom: 1px solid #c9d2d6;">プライバシーポリシー</span>に同意します</div></div>
+              <div style="display: flex;"><div style="height: 48px; background: #15191c; color: #fff; font-size: 14px; font-weight: 500; padding: 0 40px; display: flex; align-items: center; border-radius: 2px;">送信する</div></div>
+            </div>
+            <a href="#" style="align-self: flex-start; min-height: 44px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500;" style-hover="color: #9a7510;"><span style="border-bottom: 1px solid #15191c; padding-bottom: 3px;">よくある質問（FAQ）を見る →</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex: none; width: 375px; background: #f4f6f7; border: 1px solid #d3dade;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #dfe5e8;"><span style="font-size: 14px; font-weight: 600;">Shima Development</span><div style="display: flex; flex-direction: column; gap: 4px; padding: 6px;"><div style="width: 20px; height: 1.5px; background: #15191c;"></div><div style="width: 20px; height: 1.5px; background: #15191c;"></div></div></div>
+        <div style="padding: 24px 20px 32px; display: flex; flex-direction: column; gap: 18px;">
+          <h2 style="margin: 0; font-size: 24px; font-weight: 600;">お問い合わせ</h2>
+          <div style="font-size: 13px; line-height: 2; color: #434a4f;">2営業日以内にご返信します。</div>
+          <div style="background: #fff; border: 1px solid #dfe5e8; padding: 20px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12.5px; font-weight: 500;">お名前 <span style="color: #9a7510;">*</span></span><div style="border: 1px solid #c9d2d6; padding: 14px; font-size: 13px; color: #8b9196;">山田 太郎</div></div>
+            <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12.5px; font-weight: 500;">メールアドレス <span style="color: #9a7510;">*</span></span><div style="border: 1px solid #c9d2d6; padding: 14px; font-size: 13px; color: #8b9196;">mail@example.com</div></div>
+            <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 12.5px; font-weight: 500;">ご相談内容 <span style="color: #9a7510;">*</span></span><div style="border: 1px solid #c9d2d6; padding: 14px; height: 120px; font-size: 13px; color: #8b9196;">ご相談内容をご記入ください。</div></div>
+            <div style="display: flex; gap: 10px; align-items: flex-start;"><div style="width: 18px; height: 18px; border: 1px solid #c9d2d6; flex: none; margin-top: 2px;"></div><div style="font-size: 12px; line-height: 1.9; color: #5b6167;"><span style="color: #15191c; border-bottom: 1px solid #c9d2d6;">プライバシーポリシー</span>に同意します</div></div>
+            <div style="height: 48px; background: #15191c; color: #fff; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; border-radius: 2px;">送信する</div>
+          </div>
+          <a href="#" style="align-self: flex-start; min-height: 44px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500;" style-hover="color: #9a7510;"><span style="border-bottom: 1px solid #15191c; padding-bottom: 3px;">よくある質問（FAQ）を見る →</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  renderVals() {
+    const series = [
+      { slug: "wp-daiko", count: "全8回", title: "WordPress作業代行のリアル", desc: "受注から納品までの手順と、その都度の判断基準をまとめた連載。見積り・進行・引き渡しの実例つき。", updated: "2026.08.22" },
+      { slug: "ikuji-app", count: "全6回", title: "育児アプリをつくる", desc: "設計・実装・リリースまでを記録した開発日誌。夜中の授乳記録から生まれたアプリの裏側。", updated: "2026.09.02" },
+      { slug: "site-techo", count: "全12回", title: "小さなサイトの設計手帳", desc: "個人・小規模事業のサイト設計の考え方。ページ数を増やさずに伝えるための手順を順に。", updated: "2026.09.14" },
+      { slug: "hitori", count: "全5回", title: "ひとりで続ける仕組み", desc: "個人開発の運用・保守・値付けの話。無理なく長く続けるための決めごと。", updated: "2026.07.30" },
+      { slug: "theme-note", count: "全9回", title: "テーマ制作ノート", desc: "販売用WPテーマを作るときに考えていること。汎用性と個性のあいだの線引き。", updated: "2026.06.18" },
+      { slug: "tools", count: "全4回", title: "道具の話", desc: "日々の制作で使っているツールと、その選び方。入れ替えたときの記録も。", updated: "2026.05.09" }
+    ];
+    const oneoffs = [
+      { date: "2026.09.10", title: "サイトをリニューアルしました" },
+      { date: "2026.07.01", title: "夏季休業のお知らせ" },
+      { date: "2026.04.15", title: "登壇資料を公開しました" }
+    ];
+    const epT = ["連載のはじめに", "ヒアリングで聞くこと", "情報を並べる順番", "サイトマップを描く前に決めておくこと", "1カラムで足りるかを判断する基準", "トップページに載せないもの", "問い合わせ導線の置き場所", "写真がないときの設計", "更新が止まらない構成", "公開前に見直す10項目", "公開後の最初の1か月", "連載のおわりに"];
+    const epD = ["2026.03.10", "2026.04.02", "2026.05.18", "2026.06.05", "2026.06.26", "2026.07.12", "2026.08.08", "2026.08.29", "2026.09.14"];
+    const episodes = epT.map((t, i) => ({ no: String(i + 1).padStart(2, "0"), title: t, date: epD[i] || "", published: i < 9, soon: i >= 9 }));
+    const otherSeries = [series[1], series[4]];
+    const ex = ["この回で扱う内容の抜粋が2行ほど入ります。続きは記事ページで読めます。", "ページ構成を決めるときの判断の順番を、実際の案件をもとに整理します。", "最初の30分で聞いておくべきことと、聞かなくていいことの線引き。"];
+    const sameSeries = [{ no: "第1回", date: "2026.03.10", title: epT[0], excerpt: ex[0] }, { no: "第5回", date: "2026.06.26", title: epT[4], excerpt: ex[1] }, { no: "第6回", date: "2026.07.12", title: epT[5], excerpt: ex[2] }];
+    const tocOpen = !!(this.state && this.state.tocOpen);
+    return { series, seriesMobile: series.slice(0, 4), oneoffs, episodes, otherSeries, sameSeries, tocOpen, tocIcon: tocOpen ? "−" : "＋", toggleToc: () => this.setState({ tocOpen: !tocOpen }) };
+  }
+}
+</script>
+
+
+</body></html>
